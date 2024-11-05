@@ -30,7 +30,7 @@ struct MySelector {
 
 impl Selector for MySelector {
     fn should_select(&self, _index: usize, item: &dyn SkimItem) -> bool {
-        self.toggl_keygrip.contains(item.text().as_str())
+        self.toggl_keygrip.contains(item.text().to_string().as_str())
     }
 }
 

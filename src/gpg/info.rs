@@ -95,20 +95,29 @@ pub(crate) fn gpg_keys(key_ids: Option<Vec<String>>) -> Vec<SshKeyInfo> {
             line_sub_auth_detected = is_sub_auth_key(row);
         }
 
-        if line_sub_auth_detected && let Some(fingerprint) = get_fingerprint_of_key(row) {
-            auth_fingerprint = Some(fingerprint)
+        if line_sub_auth_detected {
+            if let Some(fingerprint) = get_fingerprint_of_key(row) {
+                auth_fingerprint = Some(fingerprint)
+            }
         }
 
-        if line_sub_auth_detected && let Some(fingerprint) = get_keygrip(row) {
-            auth_keygrip = Some(fingerprint)
+        if line_sub_auth_detected {
+            if let Some(fingerprint) = get_keygrip(row) {
+                auth_keygrip = Some(fingerprint)
+            }
         }
 
-        if let Some(auth_keygrip) = auth_keygrip
-            && let Some(auth_fingerprint) = auth_fingerprint
-            && let Some(main_key_id) = main_key_id
-            && let Some(main_name) = main_uid_name {
-            ssh_keys.push(SshKeyInfo::new(main_key_id, main_name, auth_fingerprint, auth_keygrip));
-            line_sub_auth_detected = false;
+        if let Some(auth_keygrip) = auth_keygrip {
+            if let Some(auth_fingerprint) = auth_fingerprint {
+                if let Some(main_key_id) = main_key_id {
+                    if let Some(main_name) = main_uid_name {
+                        ssh_keys.push(SshKeyInfo::new(
+                            main_key_id, main_name, auth_fingerprint, auth_keygrip
+                        ));
+                        line_sub_auth_detected = false;
+                    }
+                }
+            }
         }
     }
 

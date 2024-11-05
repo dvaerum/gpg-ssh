@@ -1,5 +1,3 @@
-#![feature(let_chains)]
-#![feature(str_as_str)]
 extern crate skim;
 extern crate core;
 
