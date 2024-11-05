@@ -1,0 +1,14 @@
+[package]
+name = "gpg-ssh"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.20", features = ["derive", "env"] }
+lazy_static = "1.5.0"
+log = "0.4.22"
+regex = "1.11.1"
+simple_logger = "5.0.0"
+env_logger = "0.11.5"
+skim = { version = "0.10.4"}
+tempfile = { version = "3.13.0" }
