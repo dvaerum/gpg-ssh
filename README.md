@@ -93,7 +93,7 @@ gpg --with-keygrip --list-keys $KEYFP
 ```
 
 Now run the command `gpg-connect-agent "KEYATTR <Keygrip> Use-for-ssh: true" /bye`
-with the `Keygrid` from the the certification (`[A]`)
+with the `Keygrid` from the certification (`[A]`)
 
 ```bash
 gpg-connect-agent "KEYATTR 32E0FB1B126484A4FEF42E5AEFA69ED699BFF89B Use-for-ssh: true" /bye
@@ -101,7 +101,7 @@ gpg-connect-agent "KEYATTR 32E0FB1B126484A4FEF42E5AEFA69ED699BFF89B Use-for-ssh:
 
 **Deprecated**
 
-> write the `Keygrid` from the the certification (`[A]`) to the `~/.gnupg/sshcontrol` file
+> write the `Keygrid` from the certification (`[A]`) to the `~/.gnupg/sshcontrol` file
 > (one `Keygrid` per line).
 >
 > ```bash
