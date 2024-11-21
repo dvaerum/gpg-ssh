@@ -15,7 +15,7 @@
         naersk-lib = pkgs.callPackage naersk { };
       in
       {
-        defaultPackage = naersk-lib.buildPackage {
+        packages.default = naersk-lib.buildPackage {
             buildInputs = with pkgs; [ gnupg ssh-copy-id ];
             src = ./.;
         };
